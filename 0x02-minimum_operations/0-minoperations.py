@@ -7,18 +7,21 @@ def minOperations(n):
     """ 
     Return the fewest operations needed to result in n H characters
     """
-    number_of_op = 0
-    if (n % 2 == 1):
-        number_of_op = n
+    if n == 1:
+        return 0
+    
+    operations = 0
+    clipboard = 1
+    buffer = 1
+    
+    while buffer < n:
+        if n % buffer == 0:
+            clipboard = buffer
+            operations += 1
+        buffer += clipboard
+        operations += 1
+        
+    if buffer == n:
+        return operations
     else:
-        a=0
-        while(n%2 ==0):
-            n = n//2
-            if (n == 1):
-                n = 0
-                a+=1
-                break
-            else:
-                a += 1
-        number_of_op = n + 2 * a
-    return number_of_op
+        return 0
