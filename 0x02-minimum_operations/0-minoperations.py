@@ -5,7 +5,7 @@ Module for 0-minoperations
 
 
 def minOperations(n):
-    """ 
+    """
     Return the fewest operations needed to result in n H characters
     """
     if n == 1:
